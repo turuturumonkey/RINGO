@@ -20,6 +20,9 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
     basic.showString("RESULT")
     basic.showString("" + (_get))
+    if (_get == 10) {
+        music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
+    }
 })
 function player描画 () {
     j = 0
