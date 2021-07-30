@@ -32,7 +32,6 @@ function player描画 () {
 function 落下 () {
     判定()
     i = 19
-    music.playTone(262, music.beat(BeatFraction.Half))
     for (let index = 0; index < 20; index++) {
         if (配列[i] == 1) {
             if (i >= 15) {
@@ -45,6 +44,8 @@ function 落下 () {
         }
         i += -1
     }
+    music.playTone(262, music.beat(BeatFraction.Half))
+    描画()
     判定()
 }
 function 判定 () {
@@ -63,11 +64,11 @@ input.onButtonPressed(Button.A, function () {
 })
 function 描画 () {
     i = 0
-    for (let index = 0; index < 25; index++) {
+    for (let index = 0; index < 20; index++) {
         led.unplot(i % 5, Math.floor(i / 5))
         i += 1
     }
-    led.plot(位置 + 20, 4)
+    led.plot(位置, 4)
     i = 0
     for (let index = 0; index < 20; index++) {
         if (配列[i] == 1) {
@@ -78,7 +79,7 @@ function 描画 () {
 }
 input.onButtonPressed(Button.B, function () {
     if (位置 <= 3) {
-        _get += 1
+        位置 += 1
     }
     player描画()
     判定()
