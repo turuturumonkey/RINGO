@@ -1,7 +1,7 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
     basic.pause(5000)
-    basic.showString("STRAT")
+    basic.showString("START")
     配列 = []
     for (let index = 0; index < 20; index++) {
         配列.push(0)
