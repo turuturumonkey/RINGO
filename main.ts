@@ -1,7 +1,7 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
     basic.pause(5000)
-    basic.showString("STRAT")
+    basic.showString("START")
     配列 = []
     for (let index = 0; index < 20; index++) {
         配列.push(0)
@@ -17,12 +17,11 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
             描画()
         }
     }
-    music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
     basic.showString("RESULT")
-    basic.showString("" + (_get))
     if (_get == 10) {
         music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
     }
+    basic.showString("" + (_get))
 })
 function player描画 () {
     j = 0
