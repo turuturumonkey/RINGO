@@ -1,6 +1,7 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    basic.showString("STRAT")
     music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
+    basic.pause(5000)
+    basic.showString("STRAT")
     配列 = []
     for (let index = 0; index < 20; index++) {
         配列.push(0)
@@ -16,6 +17,9 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
             描画()
         }
     }
+    music.startMelody(music.builtInMelody(Melodies.Ode), MelodyOptions.Once)
+    basic.showString("RESULT")
+    basic.showString("" + (_get))
 })
 function 落下 () {
     判定()
@@ -37,6 +41,7 @@ function 落下 () {
 function 判定 () {
     if (配列[位置 + 14] == 1) {
         _get += 1
+        配列[位置 + 14] = 0
         music.playTone(523, music.beat(BeatFraction.Half))
     }
 }
@@ -44,6 +49,7 @@ input.onButtonPressed(Button.A, function () {
     if (位置 >= 1) {
         位置 += -1
     }
+    描画()
     判定()
 })
 function 描画 () {
@@ -65,6 +71,7 @@ input.onButtonPressed(Button.B, function () {
     if (位置 <= 3) {
         _get += 1
     }
+    描画()
     判定()
 })
 let i = 0
