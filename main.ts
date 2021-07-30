@@ -21,6 +21,14 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
     basic.showString("RESULT")
     basic.showString("" + (_get))
 })
+function player描画 () {
+    j = 0
+    for (let index = 0; index < 5; index++) {
+        led.unplot(j, 4)
+        j += 1
+    }
+    led.plot(位置, 4)
+}
 function 落下 () {
     判定()
     i = 19
@@ -35,6 +43,7 @@ function 落下 () {
                 配列[i] = 0
             }
         }
+        i += -1
     }
     判定()
 }
@@ -42,14 +51,14 @@ function 判定 () {
     if (配列[位置 + 15] == 1) {
         _get += 1
         配列[位置 + 15] = 0
-        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playMelody("C E G - - - - - ", 160)
     }
 }
 input.onButtonPressed(Button.A, function () {
     if (位置 >= 1) {
         位置 += -1
     }
-    描画()
+    player描画()
     判定()
 })
 function 描画 () {
@@ -71,10 +80,11 @@ input.onButtonPressed(Button.B, function () {
     if (位置 <= 3) {
         _get += 1
     }
-    描画()
+    player描画()
     判定()
 })
 let i = 0
+let j = 0
 let 位置 = 0
 let _get = 0
 let 配列: number[] = []
@@ -85,4 +95,11 @@ basic.showLeds(`
     # # # # #
     . # # # .
     `)
-basic.pause(600)
+basic.pause(1000)
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    . . . . .
+    `)
