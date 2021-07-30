@@ -1,7 +1,7 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     music.startMelody(music.builtInMelody(Melodies.Prelude), MelodyOptions.Once)
     basic.pause(5000)
-    basic.showString("START")
+    basic.showString("STRAT")
     配列 = []
     for (let index = 0; index < 20; index++) {
         配列.push(0)
@@ -12,7 +12,7 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
         配列[randint(0, 4)] = 1
         描画()
         for (let index = 0; index < 5; index++) {
-            basic.pause(500)
+            basic.pause(300)
             落下()
             描画()
         }
